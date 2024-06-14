@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Atom Ducky</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel="stylesheet" href="static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Atom Ducky is a Rubber Ducky device made using Atom S3U microcontroller">
+    <meta name="author" content="FLOCK4H">
+</head>
+<body>
+    <div class="app">
+        <div class="app-header">
+            <div class="menu-container">
+                <div class="menu-icon" onclick="toggleMenu()">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#home" onclick="showSection('home')">Home</a>
+                    <a href="#setup" onclick="showSection('setup')">Setup</a>
+                    <a href="#contact" onclick="showSection('contact')">Contact</a>
+                    <a href="#settings" onclick="showSection('settings')">Settings</a>
+                </div>
+            </div>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="static/logo.svg" alt="Atom Ducky">
+                </div>
+            </div>
+        </div>
+        <div class="app-body">
+            <div class="body-menu-card-container">
+            <div id="home" class="body-section">
+                    <div class="body-menu-card">
+                        <div class="menu-card-nav">
+                            <div class="ducky">
+                                <img src="atoms/website_atoms/ducky.svg" alt="Ducky" />
+                            </div>
+                            <div class="nav1 currently-selected" onclick="setNav('HID')">⌨️ HID</div>
+                        </div>
+                        <div class="pop-input" style="display: none;">
+                            <input type="text" id="popInput" placeholder="">
+                            <button class="card-button" onclick="closePopInput()">Ok</button>
+                        </div>
+                        <div class="menu-card-content">
+                            <div id="hidContent" class="card-content card-content-show">
+                                <p>HID Menu</p>
+                                <div class="card-content-menu">
+                                    <div class="button-container">
+                                        <div class="bt-row1">
+                                            <button class="card-button" onclick="injectPayload()">Inject Payload</button>
+                                            <button class="card-button" onclick="showEditPayload()">Modify Payload</button>
+                                        </div>
+                                        <div class="bt-row2">
+                                            <button class="card-button" onclick="displayKeyboard()">Live Keyboard</button>
+                                            <button class="card-button" onclick="singlePayload()">Single Payload</button>
+                                        </div>
+                                        <div class="bt-row3">
+                                            <button class="card-button" onclick="showTemplates()">Templates Manager</button>
+                                            <button class="card-button" onclick="rubberMode()">Rubber Mode</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rubber-mode" style="display: none;">
+                                    <div class="rubber-screen">
+                                        <p id="rubber-state"></p>
+                                        <p>Restart the device and reload this page.</p>
+                                    </div>
+                                </div>
+                                <div class="single-payload" style="display: none;">
+                                    <textarea id="singlePayloadTextarea" rows="3" cols="30"></textarea>
+                                    <button class="card-button" onclick="sendSinglePayload()">Send Payload</button>
+                                    <button class="card-button" onclick="hideSinglePayload()">Leave</button>
+                                </div>
+                                <div class="templates" style="display: none;">
+                                    <div id="templatesList"></div>
+                                    <div class="bt-templates-row2">
+                                        <button class="card-button" onclick="newTemplate()"><div class="plus-char"></div></button>
+                                        <button class="card-button" onclick="hideTemplates()">Leave</button>
+                                    </div>
+                                    <div class="tip-text">
+                                        <p>Tip: Click on template to edit, path <b>/atoms/templates</b></p>
+                                    </div>
+                                </div>
+                                <div class="keyLayout" style="display: none;">
+
+                                    <div class="liveKeyboard">
+                                            <div class="row1">
+                                                <button>ESC</button>
+                                                <button>~</button>
+                                                <button>1</button>
+                                                <button>2</button>
+                                                <button>3</button>
+                                                <button>4</button>
+                                                <button>5</button>
+                                                <button>6</button>
+                                                <button>7</button>
+                                                <button>8</button>
+                                                <button>9</button>
+                                                <button>0</button>
+                                                <button>-</button>
+                                                <button>=</button>
+                                                <button>BACKSPACE</button>
+                                            </div>
+                                            <div class="row2">
+                                                <button>TAB</button>
+                                                <button>Q</button>
+                                                <button>W</button>
+                                                <button>E</button>
+                                                <button>R</button>
+                                                <button>T</button>
+                                                <button>Y</button>
+                                                <button>U</button>
+                                                <button>I</button>
+                                                <button>O</button>
+                                                <button>P</button>
+                                                <button>[{</button>
+                                                <button>]}</button>
+                                                <button>\</button>
+                                            </div>
+                                            <div class="row3">
+                                                <button>CAPS LOCK</button>
+                                                <button>A</button>
+                                                <button>S</button>
+                                                <button>D</button>
+                                                <button>F</button>
+                                                <button>G</button>
+                                                <button>H</button>
+                                                <button>J</button>
+                                                <button>K</button>
+                                                <button>L</button>
+                                                <button>;:</button>
+                                                <button>'"</button>
+                                                <button>ENTER</button>
+                                            </div>
+                                            <div class="row4">
+                                                <button>LSHIFT</button>
+                                                <button>Z</button>
+                                                <button>X</button>
+                                                <button>C</button>
+                                                <button>V</button>
+                                                <button>B</button>
+                                                <button>N</button>
+                                                <button>M</button>
+                                                <button>,<</button>
+                                                <button>.></button>
+                                                <button>/?</button>
+                                                <button>RSHIFT</button>
+                                            </div>
+                                            <div class="row5">
+                                                <button>CTRL</button>
+                                                <button>CMD</button>
+                                                <button>ALT</button>
+                                                <button>SPACE</button>
+                                                <button>ALT</button>
+                                                <button>CTRL</button>
+                                                <button>PRINT SCREEN</button>
+                                            </div>
+                                            <div class="row7">
+                                                <button>UP</button> 
+                                            </div>
+                                            <div class="row6">
+                                                <button>LEFT</button>
+                                                <button>DOWN</button>
+                                                <button>RIGHT</button>
+                                            </div> 
+                                        <div class="bottomKeyLayout">
+                                            <button class="card-button" onclick="hideKeyboard()">Leave</button>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="edit-payload" style="display: none;">
+                                    <textarea id="payloadTextarea" rows="10" cols="30"></textarea>
+                                    <button class="card-button" onclick="savePayload()">Save Payload</button>
+                                </div>
+                                <div class="edit-template" style="display: none;">
+                                    <textarea id="editPayloadTextarea" rows="10" cols="30"></textarea>
+                                    <div class="bt-edit-row1">
+                                        <button class="card-button edit-button" onclick="saveTemplateVisibility();">Leave</button>
+                                        <button class="card-button edit-button" onclick="saveTemplate()">Save Template</button>
+                                        <button class="card-button edit-button" onclick="runTemplate()">Run Template</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="_setup body-section" id="setup" style="display: none;">
+                <div class="setup-elements-1">
+                    <h1>🦆 Setup</h1>
+                    <p>Welcome to the <b>setup</b> page.<br /> Here you can configure your device.</p>
+                </div>
+                <div class="setup-card">
+                    <div id="setup-card-item">IP (only AP mode)</div>
+                    <input id="setup-card-input" type="text" placeholder="10.0.0.15" />
+                </div>
+                <p>Leave empty to set default</p>
+                <button id="next-button" class="setup-button" onclick="nextItem()">Next</button>
+                <button id="save-button" style="display: none;" class="setup-button" onclick="saveSetup()">Save</button>
+            </div>
+            <div id="contact" class="body-section" style="display: none;">
+                <div class="contact-elements-1">
+                    <h1>Contact me ✋🏼</h1>
+                    <p><b>✉️</b> flock4h@gmail.com</p>
+                    <p><b>🌐</b> <a href="https://github.com/FLOCK4H/AtomDucky">Atom Ducky</a></p>
+                </div>
+
+            </div>
+            <div id="settings" class="body-section" style="display: none;">
+                <div class="settings-card">
+                    <h1>⚙️ Settings</h1>
+                    <div id="settings-container">
+                        <!-- Placeholder row for JS to clone and populate -->
+                        <div class="settings-card-row" style="display: none;">
+                            <div class="settings-card-item">Name</div>
+                            <input class="settings-card-input" type="text" placeholder="Value" />
+                        </div>
+                    </div>
+                    <p class="small-tooltip">Leave empty to set default</p>
+                    <button id="save-button" class="setup-button" onclick="saveSettings()">Save</button>
+                </div>
+            </div>
+        </div>
+
+        </div>    
+        <div class="app-footer">
+            made with ❤️ by FLOCK4H | Open Source
+        </div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>

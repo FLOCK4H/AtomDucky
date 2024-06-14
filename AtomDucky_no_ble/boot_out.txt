@@ -1,0 +1,4 @@
+Adafruit CircuitPython 9.0.5 on 2024-05-22; M5Stack AtomS3U with ESP32S3
+Board ID:m5stack_atoms3u
+UID:0740D13D650D
+[2K[0Gboot.py output:
