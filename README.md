@@ -36,6 +36,8 @@ Its primary aim is to help ethical hackers gain knowledge about Rubber Ducky dev
 # Setup
 
 > [!IMPORTANT]
-> This project may not be suitable for beginners, as it requires some knowledge of the operating system command line interface.
+> This project may not be suitable for the very beginners, as it requires some knowledge of the operating system command line interface.
 
-Below, we will fully cover the setup process, from first commands in the terminal, to setup in the web interface of Atom Ducky.
+Let's fully cover the setup process, **including available microcontrollers**. From first commands in the terminal, to setup in the web interface of Atom Ducky.
+
+1. We will need a Microcontroller device supporting HID, WiFi, and preferably BLE. Perfect choice would be an **AtomS3U**, link to official website: <a href="https://shop.m5stack.com/products/atoms3u">M5Stack AtomS3U</a>
