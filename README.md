@@ -253,8 +253,7 @@ First, we will need a Microcontroller device supporting HID, WiFi, and preferabl
 
 ## Installing CircuitPython
 
-Not not every board has CircuitPython installed by default (very few to be clear), and installation process may vary between devices, the general advice is to plug your microcontroller into the computer and visit <a href="https://circuitpython.org/downloads">CircuitPython Official Website</a>
-and search for your board.
+Not not every board has CircuitPython installed by default (very few to be clear), and installation process may vary between devices, the general advice is to plug your microcontroller into the computer, visit <a href="https://circuitpython.org/downloads">CircuitPython Official Website</a>, and search for your board.
 
 **Boards without .UF2 bootloader**:
 
@@ -273,7 +272,7 @@ In case of the ATOM S3U based on ESP32S3 (<a href="https://circuitpython.org/boa
 Click on **Download Bootloader ZIP** on the website, create a folder anywhere, and unpack the downloaded **.zip** file there.
 Save the path of the folder to your clipboard, or just remember it.
 
-For flashing the **bootloader**, we will need an **esptool.py**, we can also try using our webbrowser <a href="https://adafruit.github.io/Adafruit_WebSerial_ESPTool/">ESP Web Flasher</a>.
+For flashing the **bootloader**, we will need an **esptool.py**, we can also try using a web browser <a href="https://adafruit.github.io/Adafruit_WebSerial_ESPTool/">ESP Web Flasher</a>.
 
 **Install esptool.py**, use terminal and make sure you have <a href="https://www.python.org/downloads/">Python</a> installed.
 
@@ -283,9 +282,7 @@ For flashing the **bootloader**, we will need an **esptool.py**, we can also try
 
 **Flash the device with bootloader**.
 
-Before flashing, the board has to enter into the bootloader mode, this is different between all boards, usually holding the button itself works, but in case of Atom S3U we must hold the main button and the reset button until the green light.
-
-<sub>The flash offset '-z' may vary, please check which flash offset your board has, common offsets to try are '0, 0x0, 0x1000'</sub>
+Before flashing, the board has to enter into the bootloader mode, this is different for all boards, usually holding the button itself works, but in case of Atom S3U we must hold the main button and the reset button until the green light.
 
 ```
   # Find the port
@@ -312,6 +309,8 @@ Before flashing, the board has to enter into the bootloader mode, this is differ
 ```
 
 Next, use the esptool to flash:
+
+**The flash offset '-z' may vary, please check which flash offset your board has, common offsets to try are '0, 0x0, 0x1000'**
 
 ```
   # (--port /dev/ttyPORT for linux)
@@ -406,7 +405,127 @@ The **BLE** section is fully additional, and it contains functions that when lau
 - Sour Apple - [SourApple](https://github.com/RapierXbox/ESP32-Sour-Apple)
 - Samsung BLE Spam - [ble-spam-samsung-circuitpy](https://github.com/FLOCK4H/ble-spam-samsung-circuitpy)
 
+## Payload Syntax
 
+The syntax is inherited from [NeoDucky](https://github.com/FLOCK4H/NeoDucky) project.
 
+Let's write a simple payload with `Hello World!`
 
+`atoms/payload.txt`
+```
+Hello World!
+```
 
+Now let's run it in loop:
+
+<sub>One liner</sub>
+
+```
+Hello <time1>World<time1><LOOP>
+```
+
+<sub>Multiple lines</sub>
+
+```
+Hello<time2> ;
+World<time1>!;
+<LOOP>;
+```
+Notice the semicolon use, it has to be at the end of the line in multi-line payloads
+
+- 'timeX' - where X is the amount of time to sleep (can be float e.g. 0.1 or XXX number like 360)
+  
+- 'LOOP' - as one of special tags, when used will repeat the operation over and over, it has a near second cooldown to reduce eventual damage
+
+> [!CAUTION]
+> Be very careful when using <LOOP> tag, as it may result in inpredictable and irreversible damage.
+
+## Keycodes
+   
+Keycodes are mostly single character format so "A" = "A" but there are exceptions:
+
+- "\n" is used as 'jump into newline' or RETURN key, use <RET> tag instead to simulate its press
+- "\t" a tab or four spaces are taken as a TAB key and will return four spaces, use <TAB> tag instead to simulate its press
+
+## Tags
+
+Used to perform specific actions in the payload, there are two types of tags:
+
+    1. Single
+
+- The button that was pressed is automatically released before the next payload character is sent
+
+```
+<ESC> - ESCAPE,
+<BSC> - BACKSPACE,
+<TAB> - TAB,
+<SCR> - PRINT SCREEN,
+<SLK> - SCROLL LOCK,
+<PAS> - PAUSE,
+<INS> - INSERT,
+<HOE> - HOME,
+<PGU> - PAGE UP,
+<PGD> - PAGE DOWN,
+<ARR> - ARROW RIGHT,
+<ARL> - ARROW LEFT,
+<ARD> - ARROW DOWN,
+<ARU> - ARROW UP,
+<NLK> - NUMLOCK,
+<APP> - APPLICATION,
+<PWR> - macOS only,
+<GUI> - WINDOWS KEY,
+<CMD> - WINDOWS KEY,
+<WIN> - WINDOWS KEY,
+<CTL> - LEFT CONTROL,
+<SPC> - SPACEBAR,
+<RET> - RETURN/ ENTER
+```
+
+    2. Multi
+
+- Button is only released when it meets a sibling tag ("&lt;LSHT&gt;a&lt;LSHT&gt;a" will output 'Aa')
+  
+```
+   <CTRL> - Left Control
+   <LALT> - Left Alt
+   <CTRR> - Right Control
+   <RALT> - Right Alt
+   <GCMD> - GUI/Command
+   <LSHT> - Left Shift
+   <RSHT> - Right shift
+   <CAPS> - Capslock
+   <LOOP> - Run in loop
+   <timeX> - sleep for X time
+```
+
+### Example Payload
+```
+<GUI><time2>chrome<time2>\n<time2>www.youtube.com<time1><RET><time5><CTRL>w<time1>
+```
+
+# Troubleshooting
+
+1. First step in debugging any microcontroller is to open the serial monitor, we can do that using tools like `screen`, `putty`, or inside `Thonny` IDE.
+2. If the computer cannot detect the board's drive, is unable to read/write, or the drive name changed we need to:
+  - Reset the board by plugging again
+  - Follow **Installing CircuitPython** section in order to erase flash, write, and move .uf2 file.
+  - Optional: If you are unable to complete the above steps, please search for a complete reset of your microcrontroller.
+3. If web interface loads forever or fails to load, it's most probably also the drive issue and can be fixed by reinstalling (follow point 2). 
+
+[Official CircuitPython Troubleshooting](https://learn.adafruit.com/welcome-to-circuitpython/troubleshooting)
+
+# Contribution
+
+Feel free to contribute to this repository, as it's completely open-source.
+Steps to open a pull request:
+- Fork the project
+- Download your fork to your local drive
+- Make changes
+- Open Pull Request
+- :)
+
+# License
+
+**MIT**
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
