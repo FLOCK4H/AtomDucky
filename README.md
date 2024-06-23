@@ -38,11 +38,13 @@ Its primary aim is to help ethical hackers gain knowledge about Rubber Ducky dev
 > [!IMPORTANT]
 > This project may not be suitable for the very beginners, as it requires some knowledge of the operating system command line interface.
 
-Let's fully cover the setup process, **including available microcontrollers**. From first commands in the terminal, to setup in the web interface of Atom Ducky.
+Let's fully cover the setup process, **including available microcontrollers**. From first commands in the terminal, to the web interface of Atom Ducky.
 
-1. We will need a Microcontroller device supporting HID, WiFi, and preferably BLE. Perfect choice would be an **AtomS3U**, link to official website: <a href="https://shop.m5stack.com/products/atoms3u">M5Stack AtomS3U</a>.
+First, we will need a Microcontroller device supporting HID, WiFi, and preferably BLE. Perfect choice would be an **AtomS3U**, link to official website: <a href="https://shop.m5stack.com/products/atoms3u">M5Stack AtomS3U</a>.
 
 ## Supported Microcontrollers
+
+<sub>For full version of AtomDucky</sub>
 
 **HID, WiFi and BLE:**
 
@@ -104,6 +106,8 @@ Let's fully cover the setup process, **including available microcontrollers**. F
   - sunton_esp32_2432S032C
   - 
 </details>
+
+<sub>For no_ble version of AtomDucky</sub>
 
 **Boards supporting WiFi and HID:**
 
@@ -342,11 +346,67 @@ This same drive should now be named **CIRCUITPY**, that means we have **successf
   $ git clone https://github.com/FLOCK4H/AtomDucky
 ```
 
-2. Move all files from AtomDucky folder, excluding README.md, to the **CIRCUITPY** drive.
+2. Move all files from AtomDucky folder, or AtomDucky_no_ble folder for boards without BLE module, excluding README.md, to the **CIRCUITPY** drive.
 
 3. Press RESET button once, or plug the device again.
 
 **Voila, the AtomDucky is ready to use, and it should already create an Access Point**
 
 ## Web Setup
-W.I.P
+
+1. The LED on the board should signal whether the device is starting (yellow light) or has initialized successfully (cyan light).
+
+2. We need to join the Access Point hosted by our device, ESSID of the network is Atom Ducky, and it should have no encryption.
+
+![IMG_2984](https://github.com/FLOCK4H/AtomDucky/assets/161654571/113850db-657e-4f4f-9356-bcf43580ee4c)
+
+3. Open the web browser and navigate to http://10.0.0.15
+
+![IMG_2987](https://github.com/FLOCK4H/AtomDucky/assets/161654571/065ae33c-7281-40df-ba77-af0ae3195d34)
+
+4. Click on a white hamburger dropdown menu and select `Setup`
+
+![IMG_2988](https://github.com/FLOCK4H/AtomDucky/assets/161654571/4e671ab6-9422-487e-9a07-388178ad47da)
+
+5. Configuration:
+
+- Access Point IP address, we do not need to change it at all, so just press `Next` whenever you're ready.
+- SSID is either your local **Network SSID** or **Atom Ducky Access Point SSID**, if you want to pair with existing network, you need to provide its SSID.
+- Password, can be left empty, can be set, or in case of pairing with existing network - we must provide correct password.
+- Device Mode, there are two, first is `NORMAL`, second is `RUBBER`. The difference is that `RUBBER` mode will inject the payload from `atoms/payload.txt` before the initialization of the web interface.
+- AP Mode, leave `TRUE` for the Atom Ducky access point, or necessarily change to `FALSE` if you are connecting it to your network.
+
+**Click `Save` button, this will save the config to `atoms/_config` file and restart the board**.
+
+Connecting Atom Ducky to your network will result in different IP address assigned to the device (and this address may change irregularly), without this address, it's not possible to open the web interface. One may find the new IP address on network's config website in e.g. `Attached Devices` subpage.
+
+<sub>The hostname is ATOM-DUCKY</sub>
+
+![image](https://github.com/FLOCK4H/AtomDucky/assets/161654571/148595d0-ba67-4a85-83e4-6a886d151db3)
+
+# Usage
+
+After plugging the Atom Ducky into a device supporting HID (computer, smartphone etc.), we want to open the web interface (open web browser and go to the IP address of Atom Ducky).
+
+**Web interface buttons:**
+
+- Inject Payload - :)
+- Modify Payload - Modify and save the payload
+- Live Keyboard - Open keyboard layout, press keys to send them
+- Single Payload - Compose and send a single payload (not affecting payload.txt)
+- Templates Manager - Add, modify and run payloads
+- Rubber Mode - Toggle Rubber Mode (Rubber Mode does inject the payload before the web interface is initialized)
+
+In the hamburger dropdown menu, there is a `Settings` page where we can modify `_config` file easily.
+
+![image](https://github.com/FLOCK4H/AtomDucky/assets/161654571/b9589b66-3d51-4141-96bd-01c4276c9d32)
+
+The **BLE** section is fully additional, and it contains functions that when launched can crash/ freeze iOS devices, or disrupt others in using their iOS/Samsung phones.
+
+- Sour Apple - [SourApple](https://github.com/RapierXbox/ESP32-Sour-Apple)
+- Samsung BLE Spam - [ble-spam-samsung-circuitpy](https://github.com/FLOCK4H/ble-spam-samsung-circuitpy)
+
+
+
+
+
