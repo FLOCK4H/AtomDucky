@@ -253,7 +253,7 @@ First, we will need a Microcontroller device supporting HID, WiFi, and preferabl
 
 ## Installing CircuitPython
 
-Not not every board has CircuitPython installed by default (very few to be clear), and installation process may vary between devices, the general advice is to plug your microcontroller into the computer, visit <a href="https://circuitpython.org/downloads">CircuitPython Official Website</a>, and search for your board.
+Not every board has CircuitPython installed by default (very few to be clear), and installation process may vary between devices, the general advice is to plug your microcontroller into the computer, visit <a href="https://circuitpython.org/downloads">CircuitPython Official Website</a>, and search for your board.
 
 **Boards without .UF2 bootloader**:
 
