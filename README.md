@@ -2,6 +2,10 @@
   <img src="https://flockahh.b-cdn.net/logo.svg" alt="Logo" width="256" />
 </div>
 
+> [!IMPORTANT]
+> **To all my hindi people, 'no_ble' folder contains version of AtomDucky without BLE, so don't message me about not having BLE.
+> All love ❤️**
+
 # Overview
 
 Atom Ducky is a **HID** device controlled through a web browser.
