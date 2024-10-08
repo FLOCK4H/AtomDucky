@@ -442,7 +442,7 @@ Notice the semicolon use, it has to be at the end of the line in multi-line payl
 - 'LOOP' - as one of special tags, when used will repeat the operation over and over, it has a near second cooldown to reduce eventual damage
 
 > [!CAUTION]
-> Be very careful when using <LOOP> tag, as it may result in inpredictable and irreversible damage.
+> Be very careful when using LOOP tag, as it may result in inpredictable and irreversible damage.
 
 ## Keycodes
    
