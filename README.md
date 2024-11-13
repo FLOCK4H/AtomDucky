@@ -57,58 +57,95 @@ First, we will need a Microcontroller device supporting HID, WiFi, and preferabl
   
 <br />
 
-  - Adafruit Feather ESP32 V2
-  - Adafruit Feather ESP32-S3 No PSRAM
-  - Adafruit QT Py ESP32-S3 no psram
-  - Ai Thinker ESP32-CAM
-  - Arduino Nano ESP32
-  - Cytron EDU PICO W
-  - Cytron Maker Feather AIoT S3
-  - DFRobot FireBeetle 2 ESP32-S3
-  - ES3ink
-  - ESP32-S3-Box-2.5
-  - ESP32-S3-Box-Lite
-  - ESP32-S3-DevKitC-1-N32R8
-  - ESP32-S3-DevKitC-1-N8
-  - ESP32-S3-DevKitC-1-N8R2
-  - ESP32-S3-DevKitC-1-N8R8
-  - ESP32-S3-DevKitC-1-N8R8-with-HACKTABLET
-  - ESP32-S3-DevKitM-1-N8
-  - ESP32-S3-EYE
-  - ESP32-S3-USB-OTG-N8
-  - FeatherS3
-  - FeatherS3 Neo
-  - LILYGO T-DISPLAY S3 v1.2
-  - LILYGO TEMBED ESP32S3
-  - LOLIN S3 16MB Flash 8MB PSRAM
-  - LOLIN S3 PRO 16MB Flash 8MB PSRAM
-  - M5Stack AtomS3
-  - M5Stack AtomS3 Lite
-  - M5Stack AtomS3U
-  - MakerFabs-ESP32-S3-Parallel-TFT-With-Touch-7inch
-  - NanoS3
-  - Oxocard Artwork
-  - Oxocard Connect
-  - Oxocard Galaxy
-  - Oxocard Science
-  - Pimoroni Badger 2040 W
-  - Pimoroni Pico DV Base W
-  - Pimoroni Plasma 2040W
-  - ProS3
-  - Raspberry Pi Pico W
-  - Seeed Studio XIAO ESP32C3
-  - Spotpear ESP32C3 LCD 1.44
-  - Sunton-ESP32-8048S070
-  - ThingPulse Pendrive S3
-  - TinyS3
-  - VCC-GND YD-ESP32-S3 (N16R8)
-  - VCC-GND YD-ESP32-S3 (N8R8)
-  - Waveshare ESP32-S3-GEEK
-  - Waveshare ESP32-S3-Pico
-  - Waveshare ESP32-S3-Zero
-  - Waveshare ESP32S3 LCD 1.28
-  - sunton_esp32_2432S032C
-  - 
+- Adafruit Feather ESP32S3 No PSRAM
+- Adafruit MatrixPortal S3
+- Adafruit Metro ESP32S3
+- Adafruit QT Py ESP32-S3 no psram
+- Adafruit-Qualia-S3-RGB666
+- Arduino Nano ESP32
+- AutosportLabs-ESP32-CAN-X2
+- BARDUINO 4.0.2
+- BLING!
+- BPI-Leaf-S3
+- BPI-PicoW-S3
+- Bee-Data-Logger
+- Bee-Motion-S3
+- Bee-S3
+- BlizzardS3
+- CircuitART Zero S3
+- ColumbiaDSL-Sensor-Board-V1
+- Cytron EDU PICO W
+- Cytron Maker Feather AIoT S3
+- DFRobot FireBeetle 2 ESP32-S3
+- ES3ink
+- ESP32-S3-Box-2.5
+- ESP32-S3-Box-Lite
+- ESP32-S3-DevKitC-1-N16
+- ESP32-S3-DevKitC-1-N32R8
+- ESP32-S3-DevKitC-1-N8
+- ESP32-S3-DevKitC-1-N8R2
+- ESP32-S3-DevKitC-1-N8R8
+- ESP32-S3-DevKitC-1-N8R8-with-HACKTABLET
+- ESP32-S3-DevKitM-1-N8
+- ESP32-S3-EYE
+- ESP32-S3-USB-OTG-N8
+- Espressif-ESP32-S3-LCD-EV-Board
+- Espressif-ESP32-S3-LCD-EV-Board_v1.5
+- FeatherS3
+- FeatherS3 Neo
+- Flipper Zero Wi-Fi Dev
+- Franzininho WIFI w/Wroom
+- Franzininho WIFI w/Wrover
+- Gravitech Cucumber M
+- Gravitech Cucumber MS
+- Gravitech Cucumber R
+- Gravitech Cucumber RS
+- HMI-DevKit-1.1
+- LILYGO T-DECK
+- LILYGO T-DISPLAY S3 v1.2
+- LILYGO T-Display S3 Pro
+- LILYGO T-Watch-S3
+- LILYGO TEMBED ESP32S3
+- LILYGO TTGO T-DISPLAY v1.1
+- LOLIN S3 16MB Flash 8MB PSRAM
+- LOLIN S3 PRO 16MB Flash 8MB PSRAM
+- M5Stack AtomS3
+- M5Stack AtomS3 Lite
+- M5Stack AtomS3U
+- M5Stack Cardputer
+- M5Stack CoreS3
+- M5Stack Dial
+- Maker badge by Czech maker
+- MakerFabs-ESP32-S3-Parallel-TFT-With-Touch-7inch
+- NanoS3
+- Neuron
+- OMGS3
+- Oxocard Artwork
+- Oxocard Connect
+- Oxocard Galaxy
+- Oxocard Science
+- Pajenicko PicoPad
+- Pimoroni Badger 2040 W
+- Pimoroni Inky Frame 5.7
+- Pimoroni Inky Frame 7.3
+- Pimoroni Pico DV Base W
+- Pimoroni Plasma 2040W
+- ProS3
+- RGBTouch Mini
+- Raspberry Pi Pico W
+- Seeed Xiao ESP32-S3 Sense
+- Sunton-ESP32-8048S050
+- Sunton-ESP32-8048S070
+- TinyC6
+- TinyS2
+- TinyS3
+- TinyWATCH S3
+- VCC-GND YD-ESP32-S3 (N16R8)
+- VCC-GND YD-ESP32-S3 (N8R8)
+- Waveshare ESP32-S3-GEEK
+- Waveshare ESP32-S3-Pico
+- Waveshare ESP32S3 LCD 1.28
+- sunton_esp32_2432S032C
 </details>
 
 <sub>For no_ble version of AtomDucky</sub>
@@ -118,137 +155,58 @@ First, we will need a Microcontroller device supporting HID, WiFi, and preferabl
 <details>
 <summary>Click to see full list</summary>
   
-  - ATMegaZero ESP32-S2
-  - Adafruit Camera
-  - Adafruit Feather ESP32-S2 Reverse TFT
-  - Adafruit Feather ESP32-S2 TFT
-  - Adafruit Feather ESP32-S3 Reverse TFT
-  - Adafruit Feather ESP32-S3 TFT
-  - Adafruit Feather ESP32S2
-  - Adafruit Feather ESP32S3 4MB Flash 2MB PSRAM
-  - Adafruit Feather ESP32S3 No PSRAM
-  - Adafruit FunHouse
-  - Adafruit MagTag
-  - Adafruit MatrixPortal S3
-  - Adafruit Metro ESP32S2
-  - Adafruit Metro ESP32S3
-  - Adafruit QT Py ESP32-S3 4MB Flash 2MB PSRAM
-  - Adafruit QT Py ESP32-S3 no psram
-  - Adafruit QT Py ESP32S2
-  - Adafruit-Qualia-S3-RGB666
-  - Ai Thinker ESP32-CAM
-  - Arduino Nano ESP32
-  - Artisense Reference Design RD00
-  - AutosportLabs-ESP32-CAN-X2
-  - BLING!
-  - BPI-Bit-S2
-  - BPI-Leaf-S3
-  - BPI-PicoW-S3
-  - BastWiFi
-  - Bee-Data-Logger
-  - Bee-Motion-S3
-  - Bee-S3
-  - BlizzardS3
-  - ColumbiaDSL-Sensor-Board-V1
-  - CrumpS2
-  - Cytron EDU PICO W
-  - Cytron Maker Feather AIoT S3
-  - DFRobot FireBeetle 2 ESP32-S3
-  - Deneyap Mini
-  - Deneyap Mini v2
-  - ES3ink
-  - ESP 12k NodeMCU
-  - ESP32-S2-DevKitC-1-N4
-  - ESP32-S2-DevKitC-1-N4R2
-  - ESP32-S2-DevKitC-1-N8R2
-  - ESP32-S3-Box-2.5
-  - ESP32-S3-Box-Lite
-  - ESP32-S3-DevKitC-1-N32R8
-  - ESP32-S3-DevKitC-1-N8
-  - ESP32-S3-DevKitC-1-N8R2
-  - ESP32-S3-DevKitC-1-N8R8
-  - ESP32-S3-DevKitC-1-N8R8-with-HACKTABLET
-  - ESP32-S3-DevKitM-1-N8
-  - ESP32-S3-EYE
-  - ESP32-S3-USB-OTG-N8
-  - Espressif-ESP32-S3-LCD-EV-Board
-  - FeatherS2
-  - FeatherS2 Neo
-  - FeatherS3
-  - FeatherS3 Neo
-  - Flipper Zero Wi-Fi Dev
-  - Franzininho WIFI w/Wroom
-  - Franzininho WIFI w/Wrover
-  - Freenove ESP32-WROVER-DEV-CAM
-  - Gravitech Cucumber M
-  - Gravitech Cucumber MS
-  - Gravitech Cucumber R
-  - Gravitech Cucumber RS
-  - HMI-DevKit-1.1
-  - Hardkernel Odroid Go
-  - Heltec ESP32-S3-WIFI-LoRa-V3
-  - HexKyS2
-  - IoTs2
-  - Kaluga 1
-  - LILYGO T-DECK
-  - LILYGO T-DISPLAY S3 v1.2
-  - LILYGO TEMBED ESP32S3
-  - LILYGO TTGO T8 ESP32-S2
-  - LILYGO TTGO T8 ESP32-S2 w/Display
-  - LOLIN S3 16MB Flash 8MB PSRAM
-  - LOLIN S3 MINI 4MB Flash 2MB PSRAM
-  - LOLIN S3 PRO 16MB Flash 8MB PSRAM
-  - Lilygo T-watch 2020 V3
-  - M5Stack AtomS3
-  - M5Stack AtomS3 Lite
-  - M5Stack AtomS3U
-  - M5Stack Cardputer
-  - M5Stack CoreS3
-  - M5Stack Dial
-  - MakerFabs-ESP32-S3-Parallel-TFT-With-Touch-7inch
-  - MicroDev microS2
-  - MixGo CE
-  - NanoS3
-  - Neuron
-  - Oak Dev Tech PixelWing ESP32S2
-  - Oxocard Artwork
-  - Oxocard Connect
-  - Oxocard Galaxy
-  - Oxocard Science
-  - Pajenicko PicoPad
-  - Pimoroni Badger 2040 W
-  - Pimoroni Inky Frame 5.7
-  - Pimoroni Inky Frame 7.3
-  - Pimoroni Pico DV Base W
-  - Pimoroni Plasma 2040W
-  - ProS3
-  - Raspberry Pi Pico W
-  - S2Mini
-  - S2Pico
-  - Saola 1 w/Wroom
-  - Saola 1 w/Wrover
-  - Seeed Studio XIAO ESP32C3
-  - Spotpear ESP32C3 LCD 1.44
-  - Sunton-ESP32-8048S070
-  - TTGO T8 ESP32-S2-WROOM
-  - Targett Module Clip w/Wroom
-  - Targett Module Clip w/Wrover
-  - ThingPulse Pendrive S3
-  - TinyS2
-  - TinyS3
-  - TinyWATCH S3
-  - VCC-GND YD-ESP32-S3 (N16R8)
-  - VCC-GND YD-ESP32-S3 (N8R8)
-  - Waveshare ESP32-S2-Pico
-  - Waveshare ESP32-S2-Pico-LCD
-  - Waveshare ESP32-S3-GEEK
-  - Waveshare ESP32-S3-Pico
-  - Waveshare ESP32-S3-Zero
-  - Waveshare ESP32S3 LCD 1.28
-  - nanoESP32-S2 w/Wrover
-  - nanoESP32-S2 w/Wroom
-  - senseBox MCU-S2 ESP32S2
-  - sunton_esp32_2432S032C
+- ATMegaZero ESP32-S2
+- Adafruit Camera
+- Adafruit Feather ESP32-S2 Reverse TFT
+- Adafruit Feather ESP32-S2 TFT
+- Adafruit Feather ESP32S2
+- Adafruit Feather ESP32S3 4MB Flash 2MB PSRAM
+- Adafruit FunHouse
+- Adafruit MagTag
+- Adafruit Metro ESP32S2
+- Adafruit QT Py ESP32-S3 4MB Flash 2MB PSRAM
+- Adafruit QT Py ESP32S2
+- Adafruit Vindie S2
+- Artisense Reference Design RD00
+- BPI-Bit-S2
+- BastWiFi
+- CrumpS2
+- Deneyap Kart 1A v2
+- Deneyap Mini
+- Deneyap Mini v2
+- ESP 12k NodeMCU
+- ESP32-S2-DevKitC-1-N4
+- ESP32-S2-DevKitC-1-N4R2
+- ESP32-S2-DevKitC-1-N8R2
+- FeatherS2
+- FeatherS2 Neo
+- FeatherS2 PreRelease
+- HexKyS2
+- IoTs2
+- Kaluga 1
+- LILYGO TTGO T8 ESP32-S2
+- LILYGO TTGO T8 ESP32-S2 w/Display
+- LOLIN S3 MINI 4MB Flash 2MB PSRAM
+- MORPHEANS MorphESP-240
+- MagiClick S3 N4R2
+- MicroDev microS2
+- MixGo CE
+- Oak Dev Tech PixelWing ESP32S2
+- S2Mini
+- S2Pico
+- Saola 1 w/Wroom
+- Saola 1 w/Wrover
+- TTGO T8 ESP32-S2-WROOM
+- Targett Module Clip w/Wroom
+- Targett Module Clip w/Wrover
+- ThingPulse Pendrive S3
+- Waveshare ESP32-S2-Pico
+- Waveshare ESP32-S2-Pico-LCD
+- Waveshare ESP32-S3-Tiny
+- Waveshare ESP32-S3-Zero
+- nanoESP32-S2 w/Wrover
+- nanoESP32-S2 w/Wroom
+- senseBox MCU-S2 ESP32S2
 
 </details>
 
