@@ -367,6 +367,9 @@ The **BLE** section is fully additional, and it contains functions that when lau
 - Sour Apple - [SourApple](https://github.com/RapierXbox/ESP32-Sour-Apple)
 - Samsung BLE Spam - [ble-spam-samsung-circuitpy](https://github.com/FLOCK4H/ble-spam-samsung-circuitpy)
 
+> [!IMPORTANT]
+> To hide USB drive just simply uncomment the line mentioned in `boot.py` file.
+
 ## Payload Syntax
 
 The syntax is inherited from [NeoDucky](https://github.com/FLOCK4H/NeoDucky) project.
