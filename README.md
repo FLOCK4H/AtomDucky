@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://flockahh.b-cdn.net/logo.svg" alt="Logo" width="256" />
+  <img src="https://github.com/FLOCK4H/AtomDucky/blob/main/AtomDucky/static/logo.svg" alt="Logo" width="256" />
 </div>
 
 > [!IMPORTANT]
