@@ -475,7 +475,8 @@ Used to perform specific actions in the payload, there are two types of tags:
   - Reset the board by plugging again
   - Follow **Installing CircuitPython** section in order to erase flash, write, and move .uf2 file.
   - Optional: If you are unable to complete the above steps, please search for a complete reset of your microcrontroller.
-3. If web interface loads forever or fails to load, it's most probably also the drive issue and can be fixed by reinstalling (follow point 2). 
+3. If web interface loads forever or fails to load, it's most probably also the drive issue and can be fixed by reinstalling (follow point 2).
+4. If the payload is being partially delivered (since the current buffer size is set to 5 KB, including HTTP headers), try increasing the buffer size (depending on your development board) in the `handle_request` function of `networking.py`.
 
 [Official CircuitPython Troubleshooting](https://learn.adafruit.com/welcome-to-circuitpython/troubleshooting)
 
