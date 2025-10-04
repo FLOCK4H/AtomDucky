@@ -86,7 +86,7 @@ class WebHost:
                 
     def handle_request(self, client_socket):
         try:
-            buffer = bytearray(1024)
+            buffer = bytearray(5120)
             received_bytes = client_socket.recv_into(buffer)
             request = buffer[:received_bytes].decode()
             print("Request:", request)
