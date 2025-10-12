@@ -5,7 +5,7 @@ from adafruit_hid.keyboard import Keyboard
 from usb_hid import devices
 from adafruit_hid.keycode import Keycode
 import atoms.keycodes as keycodes
-from atoms.analyzer import analyze_payload
+from atoms.analyzer import analyze_payload_stream
 import gc
 from os import listdir
 from random import randint, uniform
@@ -77,9 +77,11 @@ class AtomDucky:
         loop_payload = "<LOOP>" in payload
         if loop_payload:
             payload = payload.replace("<LOOP>", "")
-        tokens = analyze_payload(payload)
+        
+        token_gen = analyze_payload_stream(payload)  # generator instead of list
+
         while True:
-            self.execute_payload(tokens, skip_release=skip_release)
+            self.execute_payload(token_gen, skip_release=skip_release)
             if not skip_release:
                 for toggle in list(self.active_toggles):
                     self.keyboard.release(self.kc.toggles[toggle])

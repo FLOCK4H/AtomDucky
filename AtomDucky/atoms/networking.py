@@ -84,12 +84,43 @@ class WebHost:
                     continue
                 else:
                     raise
-                
+    
+    def read_full_request(self, client_socket):
+        buf = bytearray(1024)
+        request_bytes = bytearray()
+        headers_done = False
+        content_length = 0
+        body_bytes_read = 0
+
+        while True:
+            received = client_socket.recv_into(buf)
+            if received == 0:
+                break
+            request_bytes.extend(buf[:received])
+
+            if not headers_done:
+                try:
+                    header_end = request_bytes.index(b"\r\n\r\n")
+                    headers_done = True
+                    headers = request_bytes[:header_end].decode()
+                    for line in headers.splitlines():
+                        if line.lower().startswith("content-length:"):
+                            content_length = int(line.split(":")[1].strip())
+                    body_bytes_read = len(request_bytes) - (header_end + 4)
+                except ValueError:
+                    continue
+            else:
+                body_bytes_read += received
+
+            if headers_done and body_bytes_read >= content_length:
+                break
+
+        return request_bytes.decode()
+    
     def handle_request(self, client_socket):
         try:
-            buffer = bytearray(5120)
-            received_bytes = client_socket.recv_into(buffer)
-            request = buffer[:received_bytes].decode()
+
+            request = self.read_full_request(client_socket)
             print("Request:", request)
 
             request_line = request.splitlines()[0]
@@ -162,11 +193,11 @@ class WebHost:
         ducky = AtomDucky()
         payload = load_payload_from_file()
         gc.collect()
+        response = b"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nPayload Injected"
+        self.send_with_retry(client_socket, response)
         if payload is not None:
             ducky.payloads_write(payload)
         gc.collect()
-        response = b"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nPayload Injected"
-        self.send_with_retry(client_socket, response)
 
     def handle_file_manager(self, client_socket, request):
         request_lines = request.splitlines()
@@ -218,11 +249,11 @@ class WebHost:
             ducky = AtomDucky()
             payload = body
             gc.collect()
+            response = b"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nSuccess!"
+            self.send_with_retry(client_socket, response)   
             if payload is not None:
                 ducky.payloads_write(payload, skip_release=True)
-            gc.collect()
-            response = b"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nSuccess!"
-            self.send_with_retry(client_socket, response)     
+            gc.collect()  
     
     def handle_ret_templates(self, client_socket, request):
         request_lines = request.splitlines()
