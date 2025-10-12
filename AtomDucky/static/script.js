@@ -110,6 +110,18 @@ function showPopInput(placeholder, callback) {
     popInput.style.display = 'flex';
 }
 
+function showLoader(message = "Executing...") {
+    const loader = document.getElementById('loader');
+    const loaderText = document.getElementById('loaderText');
+    loaderText.textContent = message;
+    loader.style.display = 'flex';
+}
+ 
+function hideLoader() {
+    const loader = document.getElementById('loader');
+    loader.style.display = 'none';
+}
+
 function rubberMode() {
     if (MODE === '') {
         console.error('MODE not set!');
@@ -307,13 +319,16 @@ function showEditPayload() {
 }
 
 function injectPayload() {
+    showLoader("Injecting Payload....")
     fetch(`/inject`)
         .then(response => response.text())
         .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error:', error))
+        .finally(() =>{hideLoader()});
 }
 
 function readPayload() {
+    showLoader("Reading Payload....")
     fetch(`/modify_payload?action=read`)
         .then(response => response.text())
         .then(data => {
@@ -331,13 +346,15 @@ function readPayload() {
             }
             retryCount = 3
 
-        });
+        })
+        .finally(() =>{hideLoader()});
 }
 
 function savePayload() {
     const data = document.getElementById('payloadTextarea').value;
     console.log(data)
     console.log(data.length)
+    showLoader("Saving Payload....")
     fetch(`/modify_payload?action=write`, {
         method: 'POST',
         headers: {
@@ -365,7 +382,8 @@ function savePayload() {
             }
             retryCount = 3
 
-        });
+        })
+        .finally(() =>{hideLoader()});
 
     document.querySelectorAll('.card-content-menu').forEach(el => {
         el.style.display = 'flex';
@@ -424,6 +442,7 @@ function singlePayload() {
 
 function sendSinglePayload() {
     const data = document.getElementById('singlePayloadTextarea').value;
+    showLoader("Injecting Payload...")
     fetch('/single_payload', {
         method: 'POST',
         headers: {
@@ -452,7 +471,8 @@ function sendSinglePayload() {
             }
         retryCount = 3
         
-    });
+    })
+    .finally(() =>{hideLoader()});
 }
 
 function showTemplates() {
@@ -482,6 +502,7 @@ function editTemplateVisibility(mod) {
 }
 
 function fetchTemplates() {
+    showLoader("Reading Templates...")
     fetch('/ret_templates?action=read_list')
         .then(response => response.text())
         .then(data => {
@@ -518,7 +539,8 @@ function fetchTemplates() {
                 console.error('Max retries reached. Giving up.');
             }
             retryCount = 3
-        });
+        })
+        .finally(() =>{hideLoader()});
 }
 
 function saveTemplateVisibility() {
@@ -529,6 +551,7 @@ function saveTemplateVisibility() {
 function saveTemplate() {
     if (currentTemplate !== '') {
         const data = document.getElementById('editPayloadTextarea').value;
+         showLoader("Saving Template...")
         fetch(`/ret_templates?action=write&name=${currentTemplate.replace('.txt', '')}`, {
             method: 'POST',
             headers: {
@@ -557,7 +580,8 @@ function saveTemplate() {
                 console.error('Max retries reached. Giving up.');
             }
             retryCount = 3
-        });
+        })
+        .finally(() =>{hideLoader()});
     }
     else {
         console.log('Error saving template, currentTemplate variable is empty!')
@@ -567,6 +591,7 @@ function saveTemplate() {
 function runTemplate() {
     if (currentTemplate !== '') { 
         const data = document.getElementById('editPayloadTextarea').value;
+        showLoader("Injecting Payload...")
         fetch('/single_payload', {
             method: 'POST',
             headers: {
@@ -595,7 +620,8 @@ function runTemplate() {
                 }
             retryCount = 3
             
-        });
+        })
+        .finally(() =>{hideLoader()});
 
     }
 }
