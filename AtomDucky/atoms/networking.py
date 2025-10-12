@@ -265,7 +265,10 @@ class WebHost:
         print("Headers:", headers)
         print("Body:", body)
         if method == 'GET' and params.get('action') == 'read_list':
-            content = json.dumps(os.listdir('/atoms/templates'))
+            file_list = os.listdir('/atoms/templates')
+            if ".gitkeep" in file_list:
+                file_list.remove(".gitkeep")
+            content = json.dumps(file_list)
             print(content)
             response = f"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n{content}"
             self.send_with_retry(client_socket, response.encode())
